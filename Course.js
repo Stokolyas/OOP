@@ -36,4 +36,5 @@ class answer{
         this.right = Math.floor(Math.random()*2)
     }
 }
+
 let Course = new course
