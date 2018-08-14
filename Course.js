@@ -1,40 +1,45 @@
-class course {
+/* eslint-disable no-console,no-unused-vars,func-style,require-jsdoc,newline-after-var,no-trailing-spaces,max-len */
+class Course {
     constructor(){
         this.countThemes = Math.floor(Math.random(5) * 4) + 2;
         this.Themes = []
         for (let index = 0; index < this.countThemes; index++) {
-            let Theme = new theme
-            this.Themes[index] = Theme
+            let theme = new Theme
+            this.Themes[index] = theme
         }
-        console.log(this.Themes)
     }
 }
+function getCourse(){
+    let course = new Course
+    
+    return course
+}
+module.exports = getCourse;
 
-class theme{
+class Theme{
     constructor(){
-        this.countQuestion = Math.floor(Math.random(5) * 4) + 2;
+        this.CountQuestion = Math.floor(Math.random(5) * 4) + 2;
         this.Questions = []
-        for (let index = 0; index < this.countQuestion; index++) {
-            let Question = new question
-            this.Questions[index] = Question
+        for (let index = 0; index < this.CountQuestion; index++) {
+            let question = new Question
+            this.Questions[index] = question
         }
     }
 
 }
-class question{
+class Question{
     constructor(){
-        this.countAnswer = Math.floor(Math.random(5) * 4) + 2;
+        this.CountAnswer = Math.floor(Math.random(5) * 4) + 2;
         this.Answers = []
-        for (let index = 0; index < this.countAnswer; index++) {
-            let Answer = new answer
-            this.Answers[index] = Answer
+        for (let index = 0; index < this.CountAnswer; index++) {
+            let answer = new Answer
+            this.Answers[index] = answer
         }
     }
 }
-class answer{
+class Answer{
     constructor(){
         this.right = Math.floor(Math.random()*2)
     }
 }
-
-let Course = new course
+let course = new Course

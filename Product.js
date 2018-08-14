@@ -1,6 +1,6 @@
-class agent {
-    constructor() {
-        }
+/* eslint-disable no-undef,no-useless-constructor,no-empty-function,sort-vars,no-console,max-len,one-var,space-in-parens,indent,indent-legacy */
+class Agent {
+    constructor() {}
 
     setAgent(products) {
         this.products = products
@@ -12,7 +12,7 @@ class agent {
 
 }
 
-class user {
+class User {
     constructor() {
         this.countProduct = Math.floor(Math.random(120) * 51) + 70;
     }
@@ -26,7 +26,8 @@ class user {
     }
 }
 
-class generator {
+
+class Generator {
     constructor() {
         this.product = Math.floor(Math.random(150) * 101) + 50;
     }
@@ -39,29 +40,29 @@ class generator {
         return this.product
     }
 }
-let listAgent = [0,0,0]
-listGenerator = [0,0,0]
+let listAgent = [
+    0,
+    0,
+    0
+]
+listGenerator = [
+    0,
+    0,
+    0
+]
 for (let index = 3; index < 13; index++) {
-    let Generator = new generator,
-        User = new user,
-        Agent = new agent
-        listGenerator[index] = Generator.getGenerator()
-    if (Generator.getGenerator() >= 100) {
-        Agent.setAgent(100)
-        listAgent[index] = Agent.getAgent()
+    let generator = new Generator,
+        user = new User,
+        agent = new Agent
+    listGenerator[index] = generator.getGenerator()
+    if (generator.getGenerator() >= 100) {
+        agent.setAgent(100)
+        listAgent[index] = agent.getAgent()
     } else {
-        Agent.setAgent(Generator.getGenerator())
-        listAgent[index] = Agent.getAgent()
+        agent.setAgent(generator.getGenerator())
+        listAgent[index] = agent.getAgent()
     }
-    console.log(Generator.getGenerator())
+    let CPA = agent.getAgent() / user.getUser()
+    console.log(generator.getGenerator(), user.getUser(), agent.getAgent(), listGenerator[index] + listGenerator[index - 1] + listGenerator[index - 2], listAgent[index] + listAgent[index - 1] + listAgent[index - 2], CPA)
 
-    console.log(User.getUser())
-    console.log(" ")
-    console.log(Agent.getAgent())
-    console.log(" ")
-    console.log(listGenerator[index]+listGenerator[index-1]+listGenerator[index-2])
-    console.log(listAgent[index]+listAgent[index-1]+listAgent[index-2])
-    let CPA = Agent.getAgent()/User.getUser()
-    console.log(CPA)
-    console.log(" ")
 }
